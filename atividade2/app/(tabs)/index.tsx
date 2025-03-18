@@ -5,48 +5,48 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { HelloWave } from '@/components/HelloWave';
 
-const movieDetails = {
-  title: "Até o Último Homem",
+const animeDetails = {
+  title: "Fullmetal Alchemist: Brotherhood",
   description:
-    "Acompanhe a história de Desmond T. Doss, um médico do exército americano que, durante a Segunda Guerra Mundial, se recusa a pegar em armas. Durante a Batalha de Okinawa, ele trabalha na ala médica e salva cerca de 75 homens.",
-  budget: 40000000,  
-  votes: 89000,      
-  duration: "139 min",
-  releaseDate: "2016-10-28",
-  image: require('@/assets/images/imagem3.jpg'), 
+    "Acompanhe os irmãos Edward e Alphonse Elric em sua jornada para recuperar seus corpos após uma tentativa fracassada de transmutação humana. Eles exploram os segredos da alquimia e enfrentam inimigos poderosos em busca da Pedra Filosofal.",
+  budget: 10000000,  
+  votes: 250000,      
+  duration: "64 episódios",
+  releaseDate: "2009-04-05",
+  image: require('@/assets/images/fullmetal.png'), 
   cast: [
-    { id: "1", name: "Desmond Doss", actor: "Andrew Garfield", image: require('@/assets/images/andrew.jpg') },
-    { id: "2", name: "Smitty Ryker", actor: "Luke Bracey", image: require('@/assets/images/luke.jpg') }, 
-    { id: "3", name: "Captain Glover", actor: "Sam Worthington", image: require('@/assets/images/sam.jpg') }, 
-    { id: "4", name: "Sergeant Howell", actor: "Vince Vaughn", image: require('@/assets/images/vince.jpg') }, 
-    { id: "5", name: "Dorothy Schutte", actor: "Teresa Palmer", image: require('@/assets/images/teresa.jpg') }, 
+    { id: "1", name: "Edward Elric", actor: "Romi Park (JP) / Vic Mignogna (EN)", image: require('@/assets/images/edward.jpg') },
+    { id: "2", name: "Alphonse Elric", actor: "Rie Kugimiya (JP) / Maxey Whitehead (EN)", image: require('@/assets/images/alphonse.jpg') }, 
+    { id: "3", name: "Roy Mustang", actor: "Shinichiro Miki (JP) / Travis Willingham (EN)", image: require('@/assets/images/roy.jpg') }, 
+    { id: "4", name: "Winry Rockbell", actor: "Megumi Takamoto (JP) / Caitlin Glass (EN)", image: require('@/assets/images/winry.jpg') }, 
+    { id: "5", name: "Scar", actor: "Kenta Miyake (JP) / J. Michael Tatum (EN)", image: require('@/assets/images/scar.jpg') }, 
   ],
 };
 
-const MovieDetailsScreen = () => {
+const AnimeDetailsScreen = () => {
   return (
     <ScrollView style={styles.container}>
-      <Image source={movieDetails.image} style={styles.movieImage} />
+      <Image source={animeDetails.image} style={styles.animeImage} />
       
-      <ThemedView style={styles.movieInfo}>
-        <ThemedText type="title">{movieDetails.title}</ThemedText>
-        <ThemedText>{movieDetails.description}</ThemedText>
+      <ThemedView style={styles.animeInfo}>
+        <ThemedText type="title">{animeDetails.title}</ThemedText>
+        <ThemedText>{animeDetails.description}</ThemedText>
       </ThemedView>
       
       <ThemedView style={styles.detailsContainer}>
-        <ThemedText>Orçamento: ${movieDetails.budget.toLocaleString()}</ThemedText>
-        <ThemedText>Votos: {movieDetails.votes}</ThemedText>
-        <ThemedText>Duração: {movieDetails.duration}</ThemedText>
-        <ThemedText>Lançamento: {movieDetails.releaseDate}</ThemedText>
+        <ThemedText>Orçamento: ${animeDetails.budget.toLocaleString()}</ThemedText>
+        <ThemedText>Votos: {animeDetails.votes}</ThemedText>
+        <ThemedText>Duração: {animeDetails.duration}</ThemedText>
+        <ThemedText>Lançamento: {animeDetails.releaseDate}</ThemedText>
       </ThemedView>
 
-      <ThemedText type="subtitle">Atores</ThemedText>
+      <ThemedText type="subtitle">Personagens</ThemedText>
       <FlatList
-        data={movieDetails.cast}
+        data={animeDetails.cast}
         keyExtractor={(item) => item.id}
         renderItem={({ item }) => (
           <TouchableOpacity style={styles.actorItem}>
-            <Image source={item.image} style={styles.actorImage} />  {/* Corrigido */}
+            <Image source={item.image} style={styles.actorImage} />
             <View>
               <ThemedText type="title">{item.name}</ThemedText>
               <ThemedText>{item.actor}</ThemedText>
@@ -60,7 +60,7 @@ const MovieDetailsScreen = () => {
   );
 };
 
-export default MovieDetailsScreen;
+export default AnimeDetailsScreen;
 
 const styles = StyleSheet.create({
   container: {
@@ -68,12 +68,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     padding: 10,
   },
-  movieImage: {
+  animeImage: {
     width: "100%",
     height: 200,
     borderRadius: 10,
   },
-  movieInfo: {
+  animeInfo: {
     backgroundColor: "#f9f9f9",
     padding: 10,
     borderRadius: 10,
